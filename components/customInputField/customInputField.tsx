@@ -1,4 +1,3 @@
-// src/components/CustomInputField.tsx
 "use client"
 import React, { useState } from 'react';
 import { Input, InputGroup, InputRightElement, FormControl, FormLabel, FormHelperText, FormErrorMessage } from '@chakra-ui/react';
@@ -26,19 +25,19 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({ type, label }) => {
   const handleClick = () => setShowPassword(!showPassword);
 
   return (
-    <div style={{ padding: '20px', backgroundColor: '#1a1a1a', color: 'white', borderRadius: '8px', width: '300px' }}>
       <FormControl isInvalid={error !== ''}>
-        <FormLabel>{label}</FormLabel>
+        <FormLabel className='text-[#0E0E10] text-xl mb-2'>{label}</FormLabel>
         <InputGroup>
           <Input
             type={type === 'password' && showPassword ? 'text' : type}
             value={input}
             onChange={handleInputChange}
             placeholder={`Enter your ${label.toLowerCase()}`}
-            backgroundColor={error ? '#2d2d2d' : '#3d3d3d'}
-            borderColor={error ? '#ff4d4d' : '#525252'}
-            focusBorderColor={error ? '#ff4d4d' : '#6d6d6d'}
-            _hover={{ borderColor: error ? '#ff4d4d' : '#525252' }}
+            backgroundColor={error ? '#fff' : '#fff'}
+            borderColor={error ? '#ff4d4d' : '#E9E9E9'}
+            focusBorderColor={error ? '#ff4d4d' : '#F97316'}
+            _hover={{ borderColor: error ? '#ff4d4d' : '#F97316' }}
+            className='px-4 py-3 md:py-5 text-sm md:text-base'
           />
           {type === 'password' && (
             <InputRightElement>
@@ -48,10 +47,9 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({ type, label }) => {
             </InputRightElement>
           )}
         </InputGroup>
-        <FormHelperText>This is a hint</FormHelperText>
+        <FormHelperText className='text-[#4D4E51] text-base mt-2'>This is a hint</FormHelperText>
         {error && <FormErrorMessage>{error}</FormErrorMessage>}
       </FormControl>
-    </div>
   );
 };
 
